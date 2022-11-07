@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Guessing Game</h1>
+    <p>{{ session['randNumber'] }}</p>
+    <form action="/guess" method="post">
+        <input type="number" name="randNr">
+        <input type="submit" value="Guess">
+    </form>
+    {% if session['correct'] %}
+    <p>{{ session['correct'] }}</p>
+    <a href="/reset">Play again</a>
+    {% elif session['lower'] %}
+    <p>{{ session['lower'] }}</p>  
+    {% elif  session['higher'] %}
+    <p>{{ session['higher'] }}</p>    
+    {% endif %}
+
+</body>
+</html>
